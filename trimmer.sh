@@ -17,7 +17,7 @@
 
 # Environment variables:
 #
-# $WORKER_INSTANCE
+# $DEP_INSTANCE
 # $JOB_CALLBACK_URL
 # $input_csv
 # $delimiter
@@ -31,5 +31,5 @@ cd /data_cache
 cut -d "$delimiter" -f "$column_num"- "$input_csv" > "$out_file_name"
 
 if [ $? -eq 0 ]; then
-    curl --header 'Content-Type: application/json' --data "{\""$WORKER_INSTANCE"\": [{\"output_csv\": \""$out_file_name"\"}]}" -X POST "$JOB_CALLBACK_URL"
+    curl --header 'Content-Type: application/json' --data "{\""$DEP_INSTANCE"\": [{\"output_csv\": \""$out_file_name"\"}]}" -X POST "$JOB_CALLBACK_URL"
 fi
