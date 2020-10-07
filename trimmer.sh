@@ -30,6 +30,8 @@ cd /data_cache
 
 cut -d "$delimiter" -f "$column_num"- "$input_csv" > "$out_file_name"
 
+line_count=$(( $(wc -l < $out_file_name) - 1 ))
+
 if [ $? -eq 0 ]; then
-    curl --header 'Content-Type: application/json' --data "{\""$DEP_INSTANCE"\": [{\"output_csv\": \""$out_file_name"\"}]}" -X POST "$JOB_CALLBACK_URL"
+    curl --header 'Content-Type: application/json' --data "{\""$DEP_INSTANCE"\": [{\"output_csv\": \""$out_file_name"\", \"line_count\": "$line_count"}]}" -X POST "$JOB_CALLBACK_URL"
 fi
