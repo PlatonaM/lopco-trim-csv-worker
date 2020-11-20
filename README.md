@@ -1,10 +1,14 @@
 #### Description
 
     {
-        "name": "Trim column from csv",
-        "description": null,
-        "image": "trim-csv-worker",
+        "name": "Trim CSV",
+        "image": "platonam/lopco-trim-csv-worker:dev",
         "data_cache_path": "/data_cache",
+        "description": "Trim a column from a Comma-Separated Values file.",
+        "configs": {
+            "delimiter": null,
+            "column_num": null
+        },
         "input": {
             "type": "single",
             "fields": [
@@ -22,11 +26,12 @@
                     "name": "output_csv",
                     "media_type": "text/csv",
                     "is_file": true
+                },
+                {
+                    "name": "line_count",
+                    "media_type": "text/plain",
+                    "is_file": false
                 }
             ]
-        },
-        "configs": {
-            "delimiter": null,
-            "column_num": null
         }
     }
