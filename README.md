@@ -2,7 +2,7 @@
 
     {
         "name": "Trim CSV",
-        "image": "platonam/lopco-trim-csv-worker:dev",
+        "image": "platonam/lopco-trim-csv-worker:latest",
         "data_cache_path": "/data_cache",
         "description": "Trim a column from a Comma-Separated Values file.",
         "configs": {
