@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk update && apk upgrade && apk add curl
+RUN apk --no-cache add curl
 
 RUN mkdir data_cache
 
