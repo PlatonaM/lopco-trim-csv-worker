@@ -21,7 +21,7 @@
 # $JOB_CALLBACK_URL
 # $input_csv
 # $delimiter
-# $column_num
+# $columns
 
 
 out_file_name=$(cat /proc/sys/kernel/random/uuid | echo $(read s; echo ${s//-}))
@@ -29,7 +29,7 @@ out_file_name=$(cat /proc/sys/kernel/random/uuid | echo $(read s; echo ${s//-}))
 cd /data_cache
 
 echo "trimming ..."
-if cut -d "$delimiter" -f "$column_num"- "$input_csv" > "$out_file_name"; then
+if cut -d "$delimiter" -f "$columns" "$input_csv" > "$out_file_name"; then
     head -5 "$out_file_name"
     echo "total number of lines written:" $(( $(wc -l < "$out_file_name") - 1 ))
     if ! curl -s -S --header 'Content-Type: application/json' --data "{\""$DEP_INSTANCE"\": {\"output_csv\": \""$out_file_name"\"}}" -X POST "$JOB_CALLBACK_URL"; then

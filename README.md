@@ -4,10 +4,10 @@
         "name": "Trim CSV",
         "image": "platonam/lopco-trim-csv-worker:latest",
         "data_cache_path": "/data_cache",
-        "description": "Trim a column from a Comma-Separated Values file.",
+        "description": "Trim columns from a Comma-Separated Values file.",
         "configs": {
             "delimiter": null,
-            "column_num": null
+            "columns": null
         },
         "input": {
             "type": "single",
@@ -30,3 +30,5 @@
             ]
         }
     }
+
+See the [-f option](https://man7.org/linux/man-pages/man1/cut.1p.html) on how to set the `columns` configuration.
