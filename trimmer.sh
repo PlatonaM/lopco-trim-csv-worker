@@ -31,7 +31,7 @@ cd /data_cache
 echo "trimming ..."
 if cut -d "$delimiter" -f "$columns" "$input_csv" > "$out_file_name"; then
     head -5 "$out_file_name"
-    echo "total number of lines written:" $(( $(wc -l < "$out_file_name") - 1 ))
+    echo "total number of lines written:" $(wc -l < "$out_file_name")
     if ! curl -s -S --header 'Content-Type: application/json' --data "{\""$DEP_INSTANCE"\": {\"output_csv\": \""$out_file_name"\"}}" -X POST "$JOB_CALLBACK_URL"; then
         echo "callback failed"
         rm "$out_file_name"
