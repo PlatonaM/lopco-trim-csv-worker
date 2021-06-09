@@ -1,4 +1,26 @@
-#### Description
+## lopco-trim-csv-worker
+
+Remove columns from a CSV file.
+
+### Configuration
+
+`delimiter`: Delimiter used in the CSV file.
+
+`columns`: See the [-f option](https://man7.org/linux/man-pages/man1/cut.1p.html) on how to set which columns should be removed.
+
+### Inputs
+
+Type: single
+
+`input_csv`: CSV file.
+
+### Outputs
+
+Type: single
+
+`output_csv`: Result CSV file.
+
+### Description
 
     {
         "name": "Trim CSV",
@@ -30,5 +52,3 @@
             ]
         }
     }
-
-See the [-f option](https://man7.org/linux/man-pages/man1/cut.1p.html) on how to set the `columns` configuration.
